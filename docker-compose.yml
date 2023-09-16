@@ -1,0 +1,39 @@
+version: '3.1'
+
+services:
+  psql1:
+    image: postgres
+    container_name: psql-b
+    ports:
+      - "5432:5432"
+    env_file:
+      - .env
+    volumes:
+      - ./db-data1/:/var/lib/postgresql/data/
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: pass
+  psql2:
+    image: postgres
+    container_name: psql-b1
+    ports:
+      - "6543:5432"
+    env_file:
+      - .env
+    volumes:
+      - ./db-data2/:/var/lib/postgresql/data/
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: pass
+  psql3:
+    image: postgres
+    container_name: psql-b2
+    ports:
+      - "7654:5432"
+    env_file:
+      - .env
+    volumes:
+      - ./db-data3/:/var/lib/postgresql/data/
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: pass
